@@ -78,3 +78,15 @@ document.getElementById("expense-form-add").addEventListener(
         }
     }
 )
+
+// 4. simple searchbox filter
+document.getElementById("searchbox").addEventListener(
+    "input",  // logic will fire every time there's input change in the searchbox
+    function (event) {
+        const searchTerm = event.target.value.toLowerCase();
+        const filteredExpenses = theExpenses.filter(
+            (expense) => expense.title.toLowerCase().includes(searchTerm)
+        );
+        renderExpenses(filteredExpenses);
+    }
+)
